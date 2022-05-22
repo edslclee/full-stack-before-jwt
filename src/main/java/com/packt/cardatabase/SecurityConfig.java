@@ -45,6 +45,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //Add this now(Chapter10) 모든 access를 모든 endpoint에 허용
+        http.csrf().disable().cors().and()
+                .authorizeRequests().anyRequest().permitAll();
+        /* Comment this out
         //cors() function add
         http.csrf().disable().cors().and()
                 .sessionManagement()
@@ -59,7 +63,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(exceptionHandler).and()
                 //filter add
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        */
     }
+
     // Add Global CORS filter inside the class
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

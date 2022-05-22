@@ -20,6 +20,6 @@ spring:
     serialization:
       fail-on-empty-beans: false
 
-# data:
-#   rest:
-#     basePath: /api
+  data:
+   rest:
+     basePath: /api
